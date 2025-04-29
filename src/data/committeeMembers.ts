@@ -1,4 +1,4 @@
-import * as m from "../paraglide/messages.js";
+import { m } from "../paraglide/messages.js";
 import uck25Logo from "@assets/logo.svg";
 export const committeeMembers = [
     {

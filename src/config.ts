@@ -1,6 +1,6 @@
 
 
-import * as m from "./paraglide/messages.js";
+import { m } from "./paraglide/messages.js";
 import UCKLogo from './assets/logo.svg'
 import MicrosoftKoreaVenueImage from '@assets/hall.png'
 import UbuConKoreaLogo from "@assets/UbuntuKorea.svg"

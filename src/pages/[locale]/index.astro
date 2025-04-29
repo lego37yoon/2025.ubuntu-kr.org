@@ -6,7 +6,7 @@ import Sponsors from '@components/Sponsors.astro';
 import BlogFeed from '@components/BlogFeed.astro';
 import { WebsiteConfig } from '../../config';
 import { getRelativeLocaleUrlList } from 'astro:i18n';
-import * as m from "../../paraglide/messages.js";
+import { m } from "../../paraglide/messages.js";
 
 export function getStaticPaths() {
 	return getRelativeLocaleUrlList().map((locale) => {

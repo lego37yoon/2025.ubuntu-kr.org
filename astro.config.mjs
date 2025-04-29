@@ -2,18 +2,15 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
-import paraglide from "@inlang/paraglide-astro"
+import node from "@astrojs/node";
+import { paraglideVitePlugin } from '@inlang/paraglide-js';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    paraglide({
-      // recommended settings
-      project: "./project.inlang",
-      outdir: "./src/paraglide", //where your files should be
-    }),],
+  ],
   i18n: {
     defaultLocale: "ko",
     locales: ["en", "ko"],
@@ -21,5 +18,16 @@ export default defineConfig({
       prefixDefaultLocale: true
   }
   },
-
+  vite: {
+    plugins: [
+      paraglideVitePlugin({
+        // recommended settings
+        project: "./project.inlang",
+        outdir: "./src/paraglide", //where your files should be
+        strategy: ["url", "cookie", "baseLocale"]
+      })
+    ]
+  },
+  output: "static",
+  adapter: node({ mode: "standalone"}),
 });

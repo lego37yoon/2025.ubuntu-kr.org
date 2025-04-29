@@ -1,5 +1,5 @@
 import { committeeMembers } from "@data/committeeMembers";
-import * as m from "../paraglide/messages.js";
+import { m } from "../paraglide/messages.js";
 import { useState, type FormEvent } from "react";
 
 export default function CommitteeMembers() {
