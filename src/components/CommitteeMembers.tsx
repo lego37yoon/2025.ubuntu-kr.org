@@ -1,6 +1,6 @@
 import { committeeMembers } from "@data/committeeMembers";
 import * as m from "../paraglide/messages.js";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 export default function CommitteeMembers() {
     const [memberList, setMemberList] = useState(committeeMembers);
@@ -12,12 +12,16 @@ export default function CommitteeMembers() {
         ));
     }
 
+    function resetMember() {
+        setMemberList(committeeMembers);
+    }
+
     return (
         <section className="grid-col-8">
         <form className="p-search-box u-no-print" onSubmit={(e) => {e.preventDefault()}}>
             <label className="u-off-screen" htmlFor="search">{m.role_search()}</label>
             <input type="search" id="search" className="p-search-box__input" name="search" placeholder={m.role_search()} autoComplete="on" onChange={(e) => searchMember(e.currentTarget.value)} />
-            <button type="reset" className="p-search-box__reset"><i className="p-icon--close">{m.role_close()}</i></button>
+            <button type="reset" className="p-search-box__reset" onClick={resetMember}><i className="p-icon--close">{m.role_close()}</i></button>
             <button type="submit" className="p-search-box__button"><i className="p-icon--search">{m.role_search()}</i></button>
         </form>
 
